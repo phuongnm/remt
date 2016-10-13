@@ -1,0 +1,68 @@
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 09:50:31
+project setup --topLevelPackage com.cmc.remt
+jpa setup --provider HIBERNATE --database POSTGRES --hostName 192.168.17.128 --databaseName postgres --userName postgres --password postgres
+entity jpa --class ~.domain.HouseInfo --table house_info --schema remt --sequenceName seq_house_info
+field string --fieldName houseName --notNull --column house_name --sizeMin 2
+field string --fieldName houseNumber --notNull
+field boolean --fieldName status
+field string --fieldName city
+field string --fieldName country
+field string --fieldName house_category
+entity jpa --class ~.domain.HousePicture --table house_picture --schema remt --sequenceName seq_house_picture
+field string --fieldName imageName --column image_name
+field string --fieldName imagePath --column image_path
+field reference --fieldName house_info_id --type ~.domain.HouseInfo --cardinality MANY_TO_ONE
+// [failed] web mvc setup
+repository jpa --entity ~.domain.HouseInfo --interface ~.repo.HouseInfoRepo
+repository jpa --entity ~.domain.HousePicture --interface ~.repo.HousePictureRepo
+service --entity ~.domain.HouseInfo --interface ~.service.api.HouseInfoSvr --repository ~.repo.HouseInfoRepo --class ~.svr.HouseInfoSvr
+// [failed] service --entity ~.domain.Hoexit
+// [failed] service --entity ~.domain.HouseInfo --repository ~.repo.HouseInfoRepo --interface ~.svr.HouseInfoSvr --class ~.impl.HouseInfoImpl --force
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 10:13:44
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 10:13:50
+service --entity ~.domain.HousePicture --repository ~.repo.HousePictureRepo --interface ~.svr.HousePictureSvr --class ~.impl.HousePictureImpl
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 10:14:42
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 10:17:40
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 10:18:42
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 10:18:53
+repository jpa --entity ~.domain.HouseInfo --interface ~.repo.HouseInfoRepo 
+service --entity ~.domain.HouseInfo --repository ~.repo.HouseInfoRepo --interface ~.svr.HouseInfoSvr --class ~.impl.HouseInfoImpl 
+web mvc setup 
+web mvc view setup --type THYMELEAF 
+web mvc controller --all --package ~.web --formattersPackage Controller --responseType JSON 
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 10:21:14
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 10:33:23
+hint
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY --force 
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 10:33:56
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 10:51:57
+focus --class ~.domain.HousePicture
+field reference --fieldName houseInfo --type ~.domain.HouseInfo
+repository jpa --entity ~.domain.HousePicture --interface ~.repo.HousePictureRepo
+service --entity ~.domain.HousePicture --repository ~.repo.HousePictureRepo --interface ~.svr.HousePictureSvr --class ~.impl.HousePictureImpl 
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 10:54:54
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 10:56:02
+jpa setup --provider HIBERNATE --database POSTGRES --databaseName postgres --hostName 192.168.17.128 --userName postgres --password postgres --force 
+web mvc setup
+web mvc controller --controller ~.web.HousePictureController --entity ~.domain.HousePicture --path pictures --service ~.svr.HousePictureSvr --responseType JSON 
+web mvc controller --controller ~.web.HouseInfoController --entity ~.domain.HouseInfo --path info --responseType JSON --service ~.svr.HouseInfoSvr 
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 10:59:15
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 11:11:11
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 11:11:31
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 11:44:44
+web mvc setup
+web mvc controller --all --package ~.web --responseType JSON 
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 11:46:02
+// Spring Roo 2.0.0.M2 [rev 003b42c] log opened at 2016-10-13 16:16:16
+web mvc language --code es
+exit
+// Spring Roo 2.0.0.M2 [rev 003b42c] log closed at 2016-10-13 16:17:20

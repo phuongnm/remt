@@ -1,0 +1,180 @@
+<!DOCTYPE html> 
+<html data-layout-decorator="layouts/default-layout"> 
+ <head> 
+  <meta charset="UTF-8" data-th-remove="all" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" data-th-remove="all" /> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" data-th-remove="all" /> 
+  <meta name="description" content="remt" data-th-remove="all" /> 
+  <meta name="author" content="Spring Roo" data-th-remove="all" /> 
+  <link data-th-href="@{/public/img/favicon.ico}" data-th-remove="all" rel="icon" href="../../static/public/img/favicon.ico" /> 
+  <link rel="shortcut icon" href="../../static/public/img/favicon.ico" data-th-remove="all" /> 
+  <link rel="apple-touch-icon" href="../../static/public/img/apple-touch-icon.png" data-th-remove="all" /> 
+  <title data-th-text="#{label_list_entity(#{label_houseinfo_plural})}">remt - List HouseInfo</title> 
+  <!-- Bootstrap --> 
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" data-th-remove="all" /> 
+  <!-- Font Awesome --> 
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" /> 
+  <!-- Bootswatch CSS custom --> 
+  <link rel="stylesheet" type="text/css" href="../static/public/css/theme.css" data-th-remove="all" /> 
+  <!-- Roo CSS --> 
+  <link rel="stylesheet" type="text/css" href="../static/public/css/springroo.css" data-th-remove="all" /> 
+  <!--[if lt IE 9]>
+<script src="/public/js/html5shiv.min.js"></script>
+<script src="/public/js/respond.min.js"></script>
+<![endif]--> 
+  <!-- Select2 --> 
+  <link rel="stylesheet" type="text/css" data-th-href="@{/public/css/select2.css}" href="../../static/public/css/select2.css" /> 
+  <link rel="stylesheet" type="text/css" data-th-href="@{/public/css/select2-bootstrap.css}" href="../../static/public/css/select2-bootstrap.css" /> 
+  <!-- DateTimePicker --> 
+  <link rel="stylesheet" type="text/css" data-th-href="@{/public/css/jquery.datetimepicker.css}" href="../../static/public/css/jquery.datetimepicker.css" /> 
+  <script data-th-src="@{/public/js/jquery.min.js}" src="../../static/public/js/jquery.min.js"></script> 
+  <!-- Datatables --> 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.css" /> 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.0.2/css/responsive.bootstrap.css" /> 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.1.2/css/buttons.bootstrap.css" /> 
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.1.2/css/select.bootstrap.css" /> 
+ </head> 
+ <body> 
+  <!--START CONTAINER--> 
+  <div class="container bg-container"> 
+   <!-- HEADER --> 
+   <header role="banner"> 
+    <!-- header --> 
+    <div class="bg-header"> 
+     <div class="organization-logo"> 
+      <a title="remt" href="/"><img alt="remt" src="../../static/public/img/logo_spring_roo.png" /></a> 
+     </div> 
+     <div class="application-name"> 
+      <a href="/" data-th-href="@{/}">remt</a> 
+     </div> 
+    </div> 
+    <!-- MAIN MENU --> 
+    <nav class="navbar navbar-default"> 
+     <div class="container-fluid"> 
+      <!-- collapsed menu button --> 
+      <div class="navbar-header"> 
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Dropdown</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> 
+       <a class="navbar-brand" href="#">Main Menu</a> 
+      </div> 
+      <div id="bs-example-navbar-collapse-1" class="navbar-collapse collapse"> 
+       <!-- Main menu --> 
+       <div class="row"> 
+        <ul class="nav navbar-nav"> 
+         <li class="active"><a href="#">Active Menu 1</a></li> 
+         <li><a href="#">Menu 2</a></li> 
+         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown Menu 3<span class="caret"></span></a> 
+          <ul class="dropdown-menu"> 
+           <li><a href="#">Submenu 1</a></li> 
+           <li><a href="#">Submenu 2</a></li> 
+           <li><a href="#">Submenu 3</a></li> 
+          </ul></li> 
+        </ul> 
+       </div> 
+       <!-- User Menu --> 
+       <div class="container upper-nav"> 
+        <ul class="nav navbar-nav navbar-right session"> 
+         <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span>User</li> 
+         <li><button type="submit" class="exit"> <span class="glyphicon glyphicon-off" aria-hidden="true"></span><span>Exit</span> </button></li> 
+        </ul> 
+        <ul class="nav navbar-nav navbar-right links"> 
+         <li><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <span data-th-text="#{label_contact}">Contact</span></a></li> 
+         <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> <span data-th-text="#{label_help}">Help</span></a></li> 
+        </ul> 
+       </div> 
+      </div> 
+     </div> 
+    </nav> 
+   </header> 
+   <!-- END HEADER --> 
+   <!--START CONTENT--> 
+   <section data-layout-fragment="content"> 
+    <div class="container-fluid content"> 
+     <h1 data-th-text="#{label_houseinfo_plural}">HouseInfos</h1> 
+     <!--START TABLE--> 
+     <div class="table-responsive"> 
+      <table id="HouseInfoTable" class="table table-striped table-hover table-bordered" data-row-id="id" data-select="single" data-order="[[ 0, &quot;asc&quot; ]]" data-th-attr="data-create-url=@{/info/create-form/}"> 
+       <caption data-th-text="#{label_list_entity(#{label_houseinfo_plural})}">
+        List HouseInfo
+       </caption> 
+       <thead> 
+        <tr> 
+         <th data-th-text="#{label_houseinfo_housename}">houseName</th> 
+         <th data-th-text="#{label_houseinfo_housenumber}">houseNumber</th> 
+         <th data-th-text="#{label_houseinfo_status}">status</th> 
+         <th data-th-text="#{label_houseinfo_city}">city</th> 
+         <th data-th-text="#{label_houseinfo_country}">country</th> 
+         <th data-th-text="#{label_tools}">Tools</th> 
+        </tr> 
+       </thead> 
+       <tbody data-th-remove="all"> 
+        <tr> 
+         <td>houseName</td> 
+         <td>houseNumber</td> 
+         <td>status</td> 
+         <td>city</td> 
+         <td>country</td> 
+         <td data-th-text="#{label_tools}">Tools</td> 
+        </tr> 
+       </tbody> 
+      </table> 
+     </div> 
+     <!--END TABLE--> 
+     <div class="clearfix"> 
+      <div class="pull-left"> 
+       <a href="../index.html" class="btn btn-default" data-th-href="@{/}"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span data-th-text="#{label_back}">Back</span> </a> 
+      </div> 
+     </div> 
+    </div> 
+    <!--END CONTENT--> 
+    <!-- MODAL --> 
+    <div data-layout-include="fragments/modal :: modal(id='deleteHouseInfo', title=#{label_delete})"> 
+     <script type="text/javascript"> function openDeleteModal(){ jQuery('#staticModal').modal(); } </script> 
+     <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel"> 
+      <div class="modal-dialog" role="document"> 
+       <div class="modal-content"> 
+        <div class="modal-header"> 
+         <button type="button" class="close" data-dismiss="modal" aria-label="#{label_close}"> <span aria-hidden="true">×</span> </button> 
+         <h2 class="modal-title" id="staticModalLabel" data-th-text="#{label_delete}">Delete</h2> 
+        </div> 
+        <div class="modal-body" id="staticModalBody"> 
+         <p data-th-text="#{label_message}">Message</p> 
+        </div> 
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </section> 
+  </div> 
+  <!--END CONTAINER--> 
+  <footer class="container"> 
+   <p class="text-right">Â© Powered by Spring Roo</p> 
+  </footer> 
+  <!-- JQuery --> 
+  <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-1.12.3.js" data-th-remove="all"></script> 
+  <!-- Bootstrap --> 
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.js" data-th-remove="all"></script> 
+  <div data-layout-fragment="javascript"> 
+   <!-- Datatables --> 
+   <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.js"></script> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.js"></script> 
+   <!-- Datatables responsive plugin --> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.0.2/js/dataTables.responsive.js"></script> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/responsive/2.0.2/js/responsive.bootstrap.js"></script> 
+   <!-- Datatables buttons plugins --> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.1.2/js/dataTables.buttons.js"></script> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.bootstrap.js"></script> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.colVis.js"></script> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.flash.js"></script> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.1.2/js/buttons.html5.js"></script> 
+   <!-- Datatables select plugin --> 
+   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.1.2/js/dataTables.select.js"></script> 
+   <!-- Datatables application defaults --> 
+   <script type="text/javascript" charset="utf8" src="../../static/public/js/datatables-defaults.js" data-th-src="@{/public/js/datatables-defaults.js}"></script> 
+   <script type="text/javascript" charset="utf8" src="../../static/public/js/datatables-defaults-en.js" data-th-src="@{/public/js/datatables-defaults-en.js}"></script> 
+   <!-- Datatables page configs --> 
+   <script type="text/javascript" data-th-inline="javascript"> jQuery(document).ready( function () { var HouseInfoTable = jQuery('#HouseInfoTable').DataTable({ 'ajax': { 'url': [[@{/info/}]] }, 'columns': [ { 'data': 'houseName' }, { 'data': 'houseNumber' }, { 'data': 'status' }, { 'data': 'city' }, { 'data': 'country' }, { 'data': 'id', 'orderable': false, 'searchable': false, 'render': function ( data, type, full, meta ) { return '<a role="button" class="btn-accion ver" href="/info/' + data + '" data-th-text="#{label_show}">Show</a>' + '<a role="button" class="btn-accion modificar" href="/info/' + data + '/edit-form" data-th-text="#{label_edit}">Edit</a>' + '<a role="button" class="btn-accion eliminar" data-th-text="#{label_delete}" onclick="javascript:jQuery.deleteHouseInfo(' + data + ')"></a>' } } ] }); jQuery.extend({ 'deleteHouseInfo': function(id) { jQuery.ajax({ url: '/info/'+id, type: 'DELETE', success: function(result) { jQuery('#deleteHouseInfoModalBody').empty(); jQuery('#deleteHouseInfoModalBody').append('<p data-th-text="|#{info_deleted_items_number(1)}|">1 removed item</p>'); jQuery('#deleteHouseInfoModal').modal(); /** Refresh Datatables */ HouseInfoTable.ajax.reload(); }, error: function(jqXHR) { /** Getting error code */ var message = ''; /** CONFLICT */ if (jqXHR.status == 409) { message = '<p data-th-text="|#{info_no_deleted_item}|">0 items has been deleted.</p>'; } /** NOT_FOUND */ if (jqXHR.status == 404 ) { message = '<p data-th-text="|#{info_deleted_item_problem} #{info_no_exist_item}|">Error deleting selected item.</p>'; } jQuery('#deleteHouseInfoModalBody').empty(); jQuery('#deleteHouseInfoModalBody').append(message); jQuery('#deleteHouseInfoModal').modal(); } }); } }); }); </script> 
+  </div> 
+  <!-- Application --> 
+  <script type="text/javascript" src="../../static/public/js/main.js" data-th-remove="all"></script> 
+ </body> 
+</html>
